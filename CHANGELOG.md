@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Initial commit: a core framework for streams in Flame
