@@ -36,7 +36,7 @@ mixin MessageListener<M> on Component {
     super.onMount();
 
     final stream =
-        _gameRefWithProgress.getMessageProvider<M>(streamName) as Stream<M>;
+        _gameRefWithProgress.getMessageProvider<M>(streamName).messagingStream;
     _streamSubscription = stream.listen(onStreamMessage);
   }
 
