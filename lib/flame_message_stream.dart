@@ -11,6 +11,8 @@
 
 library flame_message_stream;
 
-export 'src/has_message_providers.dart';
-export 'src/message_listener.dart';
-export 'src/message_stream_provider.dart';
+export 'src/components/has_message_listener.dart';
+export 'src/components/has_message_providers.dart';
+export 'src/core/message_listener.dart';
+export 'src/core/message_providers_manager.dart';
+export 'src/core/message_stream_provider.dart';

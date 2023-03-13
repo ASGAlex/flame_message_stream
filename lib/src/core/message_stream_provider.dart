@@ -16,7 +16,7 @@ class MessageStreamProvider<M> {
     if (stream != null) {
       return stream;
     }
-    _loadingStreamController = StreamController<M>.broadcast();
+    _loadingStreamController = StreamController<M>.broadcast(sync: true);
     return _loadingStreamController!.stream;
   }
 

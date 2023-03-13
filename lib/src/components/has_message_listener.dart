@@ -9,7 +9,7 @@ import 'package:meta/meta.dart';
 /// You just need to implement [onStreamMessage] function to process received
 /// messages. And implement [streamName] getter to aim the component to specific
 /// stream
-mixin MessageListener<M> on Component {
+mixin HasMessageListener<M> on Component {
   String get streamName;
 
   /// The function is subscribed on messages
@@ -35,8 +35,9 @@ mixin MessageListener<M> on Component {
   void onMount() {
     super.onMount();
 
-    final stream =
-        _gameRefWithProgress.getMessageProvider<M>(streamName).messagingStream;
+    final stream = _gameRefWithProgress.messageProvidersManager
+        .getMessageProvider<M>(streamName)
+        .messagingStream;
     _streamSubscription = stream.listen(onStreamMessage);
   }
 
