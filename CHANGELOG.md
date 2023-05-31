@@ -1,3 +1,7 @@
+## 0.0.1+2
+
+* SDK version fix
+
 ## 0.0.1+1
 
 * SDK version fix
