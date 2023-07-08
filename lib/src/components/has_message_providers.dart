@@ -5,8 +5,8 @@ mixin HasMessageProviders on Game {
   final messageProvidersManager = MessageProvidersManager();
 
   @override
-  void detach() {
+  void onRemove() {
     messageProvidersManager.dispose();
-    super.detach();
+    super.onRemove();
   }
 }
