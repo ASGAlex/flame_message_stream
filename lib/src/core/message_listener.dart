@@ -28,7 +28,7 @@ mixin MessageListenerMixin<M> {
 
   void onStreamMessage(M message);
 
-  void dispose() {
+  void disposeListener() {
     _streamSubscription?.cancel();
     _streamSubscription = null;
   }
