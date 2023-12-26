@@ -11,12 +11,15 @@ class MessageProvidersManager {
   final _providers = <String, MessageStreamProvider>{};
 
   /// Creates or retrieves existing stream provider by name.
-  MessageStreamProvider<M> getMessageProvider<M>(String name) {
+  MessageStreamProvider<M> getMessageProvider<M>(
+    String name, [
+    bool sync = true,
+  ]) {
     final provider = _providers[name];
     if (provider is MessageStreamProvider<M>) {
       return provider;
     } else if (provider == null) {
-      final provider = _providers[name] = MessageStreamProvider<M>();
+      final provider = _providers[name] = MessageStreamProvider<M>(sync: sync);
       return provider;
     } else {
       throw "Provider '$name' does not match given type '${M.runtimeType}'";

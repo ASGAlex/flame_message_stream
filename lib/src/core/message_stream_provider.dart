@@ -5,7 +5,11 @@ import 'dart:async';
 /// Use [messagingStream] to get a new or existing stream to subscribe.
 /// Use [sendMessage] to send messages to subscribers then.
 class MessageStreamProvider<M> {
+  MessageStreamProvider({this.sync = true});
+
   StreamController<M>? _loadingStreamController;
+
+  final bool sync;
 
   /// Sends a message to all subscribers
   void sendMessage(M message) => _loadingStreamController?.add(message);
@@ -16,7 +20,7 @@ class MessageStreamProvider<M> {
     if (stream != null) {
       return stream;
     }
-    _loadingStreamController = StreamController<M>.broadcast(sync: true);
+    _loadingStreamController = StreamController<M>.broadcast(sync: sync);
     return _loadingStreamController!.stream;
   }
 
